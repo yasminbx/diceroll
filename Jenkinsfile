@@ -3,7 +3,7 @@ pipeline {
     tools {
         maven 'Maven3'  // Ensure Maven is installed
         jdk 'JDK21'     // Ensure JDK is installed
-        
+        git 'Git'
     }
     stages {
         stage('Checkout Code') {
