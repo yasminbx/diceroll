@@ -6,8 +6,7 @@ pipeline {
     }
     stages {
         stage('Checkout Code') {
-            steps {
-                 stage('Checkout Code') {
+            
             steps {
                 git branch: 'main', url: 'https://github.com/yasminbx/diceroll'
             }
