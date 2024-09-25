@@ -11,8 +11,8 @@ pipeline {
             steps {
                 git branch: 'main', url: 'https://github.com/yasminbx/diceroll'
             }
-                git 'https://github.com/yasminbx/diceroll'
-            }
+        
+    
         }
         stage('Build') {
             steps {
