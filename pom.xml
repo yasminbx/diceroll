@@ -15,22 +15,29 @@
     </properties>
 
     <dependencies>
+        <!-- JUnit dependency for unit tests -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Surefire plugin for running unit tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version> <!-- Latest stable version -->
+                <configuration>
+                    <!-- Generates test report in target/surefire-reports/ -->
+                    <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                </configuration>
+            </plugin>
+
+            <!-- JaCoCo plugin for code coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -38,21 +45,18 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>prepare-agent</goal>
+                            <goal>prepare-agent</goal> <!-- Attach JaCoCo agent for coverage -->
                         </goals>
                     </execution>
                     <execution>
                         <id>report</id>
                         <phase>test</phase>
                         <goals>
-                            <goal>report</goal>
+                            <goal>report</goal> <!-- Generate coverage report after tests -->
                         </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
-
-
 </project>
